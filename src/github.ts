@@ -118,9 +118,7 @@ export class GitHub {
       </p>
       `;
     }
-    return `<p>I'm a bot and I 👍 this PR title. 🤖</p>
-
-    <img src="https://media.giphy.com/media/ZXeU3SSLdVnHIw4Sab/giphy.gif" width="400" />`;
+    return `I'm a bot and I 👍 this PR title. 🤖\n\n![](https://media.giphy.com/media/ZXeU3SSLdVnHIw4Sab/giphy.gif)`;
   };
 
   /**
@@ -196,8 +194,7 @@ export class GitHub {
     /** Threshold of additions allowed. */
     threshold: number
   ): string =>
-    `<p>This PR is too huge for one to review :broken_heart: </p>
-    <img src="https://media.giphy.com/media/26tPskka6guetcHle/giphy.gif" width="400" />
+    `This PR is too huge for one to review :broken_heart:\n\n![](https://media.giphy.com/media/26tPskka6guetcHle/giphy.gif)\n
     <table>
       <tr>
         <th>Additions</th>
