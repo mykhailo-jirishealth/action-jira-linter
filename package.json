@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "husky install",
     "prebuild": "engines-ok && rm -rf lib",
-    "build": "ncc build src/main.ts --out lib --minify --source-map",
+    "build": "ncc build src/main.ts --out lib --source-map",
     "all": "npm run pretty && npm run build && npm run test",
     "test": "jest",
     "test:cov": "jest --coverage",
@@ -53,7 +53,7 @@
     "@types/node": "^18.11.2",
     "@types/string-similarity": "^4.0.0",
     "@typescript-eslint/parser": "^5.40.1",
-    "@zeit/ncc": "^0.22.3",
+    "@vercel/ncc": "^0.38.3",
     "axios": "^0.27.2",
     "engines-ok": "^1.2.0",
     "eslint": "^8.25.0",
@@ -67,6 +67,6 @@
     "markdown-toc": "^1.2.0",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.8",
-    "typescri": "^1.0.4"
+    "typescript": "^5.0.0"
   }
 }
