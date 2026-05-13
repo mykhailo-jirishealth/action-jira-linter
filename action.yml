@@ -40,6 +40,10 @@ inputs:
     description: 'Set this to true if you want action-jira-linter to fail the PR if it encounters an error'
     required: false
     default: true
+  add-labels:
+    description: 'Set this to false to skip adding labels to the PR from Jira issue details'
+    required: false
+    default: true
 
 runs:
   using: 'node12'

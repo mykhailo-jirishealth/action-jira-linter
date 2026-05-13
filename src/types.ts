@@ -149,6 +149,7 @@ export interface JIRALintActionInputs {
   validateIssueStatus: boolean;
   allowedIssueStatuses: string[];
   failOnError: boolean;
+  addLabels: boolean;
 }
 
 export interface JIRAClient {

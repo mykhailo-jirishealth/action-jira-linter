@@ -28,6 +28,7 @@ const getInputs = (): JIRALintActionInputs => {
   const validateIssueStatus: boolean = core.getInput('validate-issue-status', { required: false }) === 'true';
   const allowedIssueStatuses: string[] = core.getMultilineInput('allowed-issue-statuses');
   const failOnError: boolean = core.getInput('fail-on-error', { required: false }) !== 'false';
+  const addLabels: boolean = core.getInput('add-labels', { required: false }) !== 'false';
 
   return {
     jiraUser,
@@ -40,6 +41,7 @@ const getInputs = (): JIRALintActionInputs => {
     validateIssueStatus,
     allowedIssueStatuses,
     failOnError,
+    addLabels,
   };
 };
 
@@ -56,6 +58,7 @@ async function run(): Promise<void> {
       validateIssueStatus,
       allowedIssueStatuses,
       failOnError,
+      addLabels,
     } = getInputs();
 
     const exit = (message: string): void => {
@@ -145,9 +148,11 @@ async function run(): Promise<void> {
       const hotfixLabel: string = GitHub.getHotfixLabel(baseBranch);
       const typeLabel: string = details?.type?.name || '';
       const labels: string[] = [podLabel, hotfixLabel, typeLabel].filter((l) => l != null && l.length > 0);
-      console.log('Adding lables -> ', labels);
 
-      await gh.addLabels({ ...commonPayload, labels });
+      if (addLabels) {
+        console.log('Adding lables -> ', labels);
+        await gh.addLabels({ ...commonPayload, labels });
+      }
 
       if (GitHub.shouldUpdatePRDescription(prBody)) {
         console.log('Updating PR description…', prBody);
