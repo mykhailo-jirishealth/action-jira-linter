@@ -182,6 +182,7 @@ A full example with all available options and example values is provided below.
       In Progress
       Done
     fail-on-error: false
+    add-labels: true
 ```
 
 | Key                      | Description                                                                                                                                                                                                                                             | Required | Default         |
@@ -195,6 +196,7 @@ A full example with all available options and example values is provided below.
 | `validate-issue-status`  | A `Boolean` based on which `action-jira-linter` will validate the status of the detected jira issue                                                                                                                                                            |          | `false`         |
 | `allowed-issue-statuses` | A line-separated list of acceptable Jira issue statuses. The detected jira issue's status will be compared against this list and if a match is not found then the status check will fail. _Note_: Requires `validate-issue-status` to be set to `true`. |          | `'In Progress'` |
 | `fail-on-error`          | A `Boolean` which, if set to `true`, fails the GitHub Action when an error occurs. Default `true`.                                                                                                                                                      |          | `false`         |
+| `add-labels`             | A `Boolean` which, if set to `false`, skips adding labels to the PR from Jira issue details (project label, hotfix label, issue type label).                                                                                                            |          | `true`          |
 
 **Special note on `jira-token`:** Since tokens are private, we suggest adding
 them as [GitHub secrets][secrets].
