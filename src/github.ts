@@ -194,7 +194,7 @@ export class GitHub {
     /** Threshold of additions allowed. */
     threshold: number
   ): string =>
-    `This PR is too huge for one to review :broken_heart:\n
+    `<p>This PR is too huge for one to review :broken_heart:</p>
     <table>
       <tr>
         <th>Additions</th>
