@@ -194,23 +194,22 @@ export class GitHub {
     /** Threshold of additions allowed. */
     threshold: number
   ): string =>
-    `<p>This PR is too huge for one to review :broken_heart:</p>
-    <table>
-      <tr>
-        <th>Additions</th>
-        <td>${additions} :no_good_woman: </td>
-      </tr>
-      <tr>
-        <th>Expected</th>
-        <td>:arrow_down: ${threshold}</td>
-      </tr>
-    </table>
-    <p>Consider breaking it down into multiple small PRs.</p>
-    <p>
-      Check out this <a href="https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests">guide</a>
-      to learn more about PR best-practices.
-    </p>
-  `;
+    `This PR is too huge for one to review :broken_heart:
+<table>
+<tr>
+<th>Additions</th>
+<td>${additions} :no_good_woman: </td>
+</tr>
+<tr>
+<th>Expected</th>
+<td>:arrow_down: ${threshold}</td>
+</tr>
+</table>
+<p>Consider breaking it down into multiple small PRs.</p>
+<p>
+Check out this <a href="https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests">guide</a>
+to learn more about PR best-practices.
+</p>`;
 
   /** Return a hotfix label based on base branch type. */
   static getHotfixLabel = (baseBranch: string): string => {
