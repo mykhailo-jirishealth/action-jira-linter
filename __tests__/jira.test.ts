@@ -46,6 +46,9 @@ describe('getJIRAIssueKeys()', () => {
     expect(Jira.getJIRAIssueKeys('MOJO-6789/task_with_underscores-ES-43')).toEqual(['MOJO-6789', 'ES-43']);
     expect(Jira.getJIRAIssueKeys('nudge-live-chat-users-Es-172')).toEqual(['ES-172']);
 
+    // Trailing numeric segments must not be absorbed into the key.
+    expect(Jira.getJIRAIssueKeys('JD-176-500-unique-constraint-patients_visit_number')).toEqual(['JD-176']);
+
     expect(Jira.getJIRAIssueKeys('feature/missingKey')).toEqual([]);
     expect(Jira.getJIRAIssueKeys('')).toEqual([]);
   });
